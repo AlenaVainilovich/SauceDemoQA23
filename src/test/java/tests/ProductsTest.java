@@ -13,7 +13,7 @@ public class ProductsTest extends BaseTest {
         productsPage.buyProduct("Sauce Labs Bolt T-Shirt");
         productsPage.buyProduct("Sauce Labs Fleece Jacket");
         productsPage.buyProduct("Sauce Labs Bike Light");
-        assertEquals(productsPage.countOfAddedProductsCartIcon(),
+        assertEquals(productsPage.getCountOfAddedProductsCartIcon(),
                 "3",
                 "The number of products on the cart icon is not as expected");
     }

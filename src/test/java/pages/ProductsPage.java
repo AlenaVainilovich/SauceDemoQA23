@@ -2,8 +2,9 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class ProductsPage extends BasePage{
+public class ProductsPage extends BasePage {
     private final By TITLE = By.cssSelector(".title");
     private final String PRODUCT = "//*[text()='%s']/ancestor::*[contains(@class,'inventory_item')]//button";
     private final By CART = By.id("shopping_cart_container");
@@ -14,10 +15,11 @@ public class ProductsPage extends BasePage{
     }
 
     public void open() {
-        driver.get(BASE_URL +"inventory.html");
+        driver.get(BASE_URL + "inventory.html");
     }
 
     public String getTitle() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(TITLE));
         return driver.findElement(TITLE).getText();
     }
 
@@ -29,7 +31,7 @@ public class ProductsPage extends BasePage{
         driver.findElement(CART).click();
     }
 
-    public String countOfAddedProductsCartIcon() {
+    public String getCountOfAddedProductsCartIcon() {
         return driver.findElement(COUNT_OF_PRODUCTS_ICON).getText();
     }
 }

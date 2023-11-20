@@ -29,4 +29,8 @@ public class CartPage extends BasePage {
     public void continueShoppingButton() {
         driver.findElement(CONTINUE_SHOPPING_BUTTON).click();
     }
+
+    public boolean isProductExistInTheCart(String product_name) {
+        return driver.findElement(By.xpath(String.format(PRODUCT_NAME, product_name))).isDisplayed();
+    }
 }

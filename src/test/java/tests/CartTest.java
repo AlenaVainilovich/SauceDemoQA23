@@ -3,6 +3,7 @@ package tests;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class CartTest extends BaseTest {
 
@@ -21,15 +22,14 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void addedProductNameShouldBeInTheCart() {
+    public void addedProductShouldBeInTheCart() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.buyProduct("Sauce Labs Bolt T-Shirt");
         productsPage.buyProduct("Sauce Labs Fleece Jacket");
         productsPage.buyProduct("Sauce Labs Bike Light");
         cartPage.open();
-        assertEquals(cartPage.getProductName("Sauce Labs Fleece Jacket"),
-                "Sauce Labs Fleece Jacket",
+        assertTrue(cartPage.isProductExistInTheCart("Sauce Labs Fleece Jacket"),
                 "The selected item is not in the cart");
     }
 
