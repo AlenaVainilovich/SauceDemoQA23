@@ -7,7 +7,7 @@ import static org.testng.Assert.assertTrue;
 
 public class CartTest extends BaseTest {
 
-    @Test
+    @Test(description = "Product price should be correct in the cart", retryAnalyzer = Retry.class)
     public void productPriceShouldBeCorrectInTheCart() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -21,7 +21,7 @@ public class CartTest extends BaseTest {
 
     }
 
-    @Test
+    @Test(description = "The added product should appear in the cart", retryAnalyzer = Retry.class)
     public void addedProductShouldBeInTheCart() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -33,7 +33,7 @@ public class CartTest extends BaseTest {
                 "The selected item is not in the cart");
     }
 
-    @Test
+    @Test(description = "Continue shopping", retryAnalyzer = Retry.class)
     public void continueShoppingFromCart() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
