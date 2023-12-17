@@ -11,6 +11,7 @@ import org.testng.annotations.*;
 import pages.CartPage;
 import pages.LoginPage;
 import pages.ProductsPage;
+import utils.PropertyReader;
 
 import java.time.Duration;
 
@@ -44,6 +45,10 @@ public class BaseTest {
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
 
+        String user = System.getenv().getOrDefault("user", PropertyReader.getProperty("sf.user"));
+        System.out.println(user);
+        String password = System.getProperty("password", PropertyReader.getProperty("sf.password"));
+        System.out.println(password);
     }
 
     @AfterMethod(alwaysRun = true, description = "Close browser")
