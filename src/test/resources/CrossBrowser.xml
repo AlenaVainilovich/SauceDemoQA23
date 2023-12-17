@@ -5,7 +5,7 @@
         <classes>
             <class name="tests.LoginTest"/>
             <class name="tests.CartTest"/>
-            <parameter name="browser" value="firefox"></parameter>
+            <parameter name="browser" value="chrome"></parameter>
         </classes>
     </test> <!-- Test -->
     <test name="Firefox">
